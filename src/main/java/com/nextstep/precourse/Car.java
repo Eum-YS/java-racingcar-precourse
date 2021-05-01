@@ -1,6 +1,6 @@
 package com.nextstep.precourse;
 
-public class Car {
+public class Car implements Cloneable {
 	public static final int RANDOM_MAXIMUM_NUMBER = 9;
 	public static final int MOVING_CRITERIA = 3;
 
@@ -35,5 +35,10 @@ public class Car {
 
 	public boolean isPossibleToMove(int criteriaNumber) {
 		return criteriaNumber > MOVING_CRITERIA;
+	}
+
+	@Override
+	protected Car clone() throws CloneNotSupportedException {
+		return (Car)super.clone();
 	}
 }
