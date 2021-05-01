@@ -6,6 +6,7 @@ public class Car {
 
 	private String name;
 	private int distance = 0;
+	private int tryCount = 0;
 
 	public Car(String name) {
 		this.name = name;
@@ -19,7 +20,12 @@ public class Car {
 		return distance;
 	}
 
+	public int getTryCount() {
+		return tryCount;
+	}
+
 	public int tryToMove() {
+		tryCount++;
 		int randomNumber = RandomNumberGenerator.getRandomNumber(RANDOM_MAXIMUM_NUMBER);
 		if (isPossibleToMove(randomNumber)) {
 			return distance++;

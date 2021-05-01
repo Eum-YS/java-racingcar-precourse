@@ -23,10 +23,19 @@ public class CarTest {
 	}
 
 	@Test
-	public void tryToMove() {
+	public void tryToMoveDistance() {
 		int currentDistance = testCar.getDistance();
-		assertThat(testCar.tryToMove())
+		testCar.tryToMove();
+		assertThat(testCar.getDistance())
 			.isBetween(currentDistance, currentDistance + 1);
+	}
+
+	@Test
+	public void tryToMoveCount() {
+		int currentDistance = testCar.getTryCount();
+		testCar.tryToMove();
+		assertThat(testCar.getTryCount())
+			.isEqualTo(currentDistance + 1);
 	}
 
 	@ParameterizedTest
